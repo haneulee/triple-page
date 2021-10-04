@@ -12,9 +12,9 @@ export const MetricsContainer: FC = () => {
 		delay: 0.1,
 	});
 	const countInfo = [
-		useCount({ end: metricsCount[0], duration: 10 }),
+		useCount({ end: metricsCount[0], duration: 700 }),
 		useCount({ end: metricsCount[1], duration: 1500 }),
-		useCount({ end: metricsCount[2], duration: 300 }),
+		useCount({ end: metricsCount[2], duration: 700 }),
 	];
 
 	return (
