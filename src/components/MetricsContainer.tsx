@@ -2,24 +2,30 @@ import { FC } from "react";
 import styled from "styled-components";
 import constants from "src/constants";
 import useFadeIn from "src/hooks/useFadeIn";
+import useCount from "src/hooks/useCount";
 
 export const MetricsContainer: FC = () => {
-	let { metricsText } = constants;
+	let { metricsText, metricsCount } = constants;
 	const animationInfo = useFadeIn({
 		direction: "up",
 		duration: 0.7,
 		delay: 0.1,
 	});
+	const countInfo = [
+		useCount({ end: metricsCount[0], duration: 10 }),
+		useCount({ end: metricsCount[1], duration: 1500 }),
+		useCount({ end: metricsCount[2], duration: 300 }),
+	];
 
 	return (
 		<MetricWrapper {...animationInfo}>
 			{metricsText.map((metric, index) => (
 				<MetricsItem key={index}>
 					<BoldText>
-						<span>{metric[0]}</span>
-						{metric[1]}
+						<span {...countInfo[index]}>0</span>
+						{metric[0]}
 					</BoldText>
-					{metric[2]}
+					{metric[1]}
 				</MetricsItem>
 			))}
 		</MetricWrapper>
