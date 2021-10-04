@@ -1,20 +1,23 @@
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "src/assets/styles/global-styles";
+import { theme } from "src/assets/styles/theme";
 import { AwardsContainer } from "src/components/AwardsContainer";
 import { ContentLogo } from "src/components/ContentLogo";
 import { MetricsContainer } from "src/components/MetricsContainer";
 
 export const App: FC = () => {
 	return (
-		<SectionContainer>
-			<GlobalStyle />
-			<ResponsiveContainer>
-				<ContentLogo />
-				<MetricsContainer />
-				<AwardsContainer />
-			</ResponsiveContainer>
-		</SectionContainer>
+		<ThemeProvider theme={theme}>
+			<SectionContainer>
+				<GlobalStyle />
+				<ResponsiveContainer>
+					<ContentLogo />
+					<MetricsContainer />
+					<AwardsContainer />
+				</ResponsiveContainer>
+			</SectionContainer>
+		</ThemeProvider>
 	);
 };
 
